@@ -17,7 +17,7 @@ const SearchBox = ({ handleSubmit }) => {
         type="text"
         name="query"
         className={css.searchInput}
-        placeholder="movie-name"
+        placeholder="Movie title"
       />
       <button type="submit" className={css.searchBtn}>
         Search
