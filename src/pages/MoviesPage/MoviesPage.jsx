@@ -66,6 +66,8 @@ const MoviesPage = () => {
     if (newPage < 1 || newPage > totalPages) return;
     setCurrentPage(newPage);
     updateSearchParams('page', newPage);
+
+    window.scrollTo(0, 0);
   };
 
   return (
