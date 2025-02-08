@@ -7,15 +7,15 @@ const buildLinkClass = ({ isActive }) => {
 };
 
 const Navigation = () => (
-  <header>
-    <nav>
-      <ul>
-        <li>
+  <header className={css.header}>
+    <nav className={css.navContainer}>
+      <ul className={css.navlinks}>
+        <li className={css.linkItem}>
           <NavLink to="/" className={buildLinkClass}>
             Home
           </NavLink>
         </li>
-        <li>
+        <li className={css.linkItem}>
           <NavLink to="/movies" className={buildLinkClass}>
             Movies
           </NavLink>

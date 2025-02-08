@@ -1,0 +1,13 @@
+.movieTrend {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.trendItem {
+  border-radius: 5px;
+  border: 1px solid #1f7400;
+}

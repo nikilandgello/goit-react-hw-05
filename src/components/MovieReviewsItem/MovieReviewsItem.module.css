@@ -1,0 +1,9 @@
+.reviewMore {
+  border: none;
+  font-size: 20px;
+  color: #1f7400;
+  transition: color 0.25s;
+}
+.reviewMore:hover {
+  color: #42e900bf;
+}

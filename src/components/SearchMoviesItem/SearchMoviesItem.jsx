@@ -1,21 +1,34 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import css from './SearchMoviesItem.module.css';
 
-const SearchMoviesItem = ({ data: { id, title, poster_path } }) => {
+const SearchMoviesItem = ({
+  data: { id, title, poster_path },
+  currentPage,
+}) => {
+  const location = useLocation();
+  const maxLength = 17;
+
   const defaultImg =
     'https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster';
 
   return (
-    <div>
-      <Link to={`/movies/${id}`} state={{ from: location.pathname }}>
+    <div className={css.searchMoviesItem}>
+      <Link to={`/movies/${id}`} state={{ from: location, page: currentPage }}>
         <img
           src={
             poster_path
               ? `https://image.tmdb.org/t/p/w500${poster_path}`
               : defaultImg
           }
-          width={200}
+          width={250}
+          height={350}
+          className={css.searchImg}
         />
-        {title}
+        <div className={css.searchTitle}>
+          {title.length <= maxLength
+            ? title
+            : `${title.substring(0, maxLength)}...`}
+        </div>
       </Link>
     </div>
   );

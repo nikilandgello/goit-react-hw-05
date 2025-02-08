@@ -1,0 +1,27 @@
+.searchForm {
+  margin-bottom: 40px;
+}
+
+.searchInput {
+  background-color: transparent;
+  border: 1px solid #1f7400;
+  padding: 10px 15px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 20px;
+  outline: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  caret-color: #1f7400;
+}
+.searchInput::placeholder {
+  color: #1f7400;
+}
+.searchBtn {
+  font-size: 20px;
+  padding: 10px;
+  transition: color 0.25s, border-color 0.25s;
+}
+.searchBtn:hover {
+  color: #42e900bf;
+  border-color: #42e900bf;
+}

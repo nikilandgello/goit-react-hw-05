@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { getTrendingMovies } from '../../services/api';
 import MovieTrendList from '../../components/MovieTrendList/MovieTrendList';
+import css from './HomePage.module.css';
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
   const isFetched = useRef(false);
+  console.log(css);
 
   useEffect(() => {
     if (isFetched.current) return;
@@ -24,8 +26,10 @@ const HomePage = () => {
 
   return (
     <main>
-      <h1>Best Movies!</h1>
-      <MovieTrendList data={movies} />
+      <div className={css.movies}>
+        <h1 className={css.title}>Best Movies!</h1>
+        <MovieTrendList data={movies} />
+      </div>
     </main>
   );
 };

@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import css from './MovieDetailsPage.module.css';
 import BackLink from '../../components/BackLink/BackLink';
 import MovieItemDescription from '../../components/MovieItemDescription/MovieItemDescription';
+import Loading from '../../components/Loading/Loading';
 
 const buildLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
@@ -22,7 +23,6 @@ const MovieDetailsPage = () => {
       try {
         const data = await getMovieDetails(movieId);
         setMovie(data);
-        console.log(location);
       } catch (error) {
         console.log(error);
       }
@@ -31,29 +31,31 @@ const MovieDetailsPage = () => {
     fetchMovieDetails();
   }, [movieId, location]);
 
-  if (!movie) return <p>Loading...</p>;
-
+  if (!movie) return <Loading></Loading>;
   return (
-    <div>
-      <BackLink to={backLink.current}>Go Back</BackLink>
+    <main>
+      <div className={css.movieDetailes}>
+        <div className={css.detailes}>
+          <BackLink to={backLink.current}>Go Back</BackLink>
 
-      <MovieItemDescription data={movie}></MovieItemDescription>
+          <MovieItemDescription data={movie}></MovieItemDescription>
+        </div>
+        <ul className={css.linkList}>
+          <li className={css.linkListItem}>
+            <NavLink to="cast" className={buildLinkClass}>
+              Cast
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="reviews" className={buildLinkClass}>
+              Reviews
+            </NavLink>
+          </li>
+        </ul>
 
-      <ul>
-        <li>
-          <NavLink to="cast" className={clsx(buildLinkClass)}>
-            Cast
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="reviews" className={clsx(buildLinkClass)}>
-            Reviews
-          </NavLink>
-        </li>
-      </ul>
-
-      <Outlet />
-    </div>
+        <Outlet />
+      </div>
+    </main>
   );
 };
 

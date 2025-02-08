@@ -1,35 +1,18 @@
-import { Link } from 'react-router-dom';
+import MovieTrendItem from '../MovieTrendItem/MovieTrendItem';
+import css from './MovieTrendList.module.css';
 
-const MovieList = ({ data }) => {
-  const defaultImg =
-    'https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster';
-
+const MovieTrendList = ({ data }) => {
   return (
-    <div>
-      <ul>
-        {data.map(movie => {
-          return (
-            <li key={movie.id}>
-              <Link
-                to={`/movies/${movie.id}`}
-                state={{ from: location.pathname }}
-              >
-                <img
-                  src={
-                    movie.backdrop_path
-                      ? `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
-                      : defaultImg
-                  }
-                  width={200}
-                />
-                {movie.title}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    <ul className={css.movieTrend}>
+      {data.map(movie => {
+        return (
+          <li key={movie.id} className={css.trendItem}>
+            <MovieTrendItem movie={movie}></MovieTrendItem>
+          </li>
+        );
+      })}
+    </ul>
   );
 };
 
-export default MovieList;
+export default MovieTrendList;

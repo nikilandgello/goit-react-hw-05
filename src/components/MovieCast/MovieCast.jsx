@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCast } from '../../services/api';
 import MovieCastList from '../MovieCastList/MovieCastList';
+import css from './MovieCast.module.css';
 
 const MovieCast = () => {
   const { movieId } = useParams();
@@ -22,7 +23,7 @@ const MovieCast = () => {
   }, [movieId]);
 
   return (
-    <div>
+    <div className={css.cast}>
       {actors.length > 0 ? (
         <MovieCastList data={actors}></MovieCastList>
       ) : (

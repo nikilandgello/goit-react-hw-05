@@ -1,3 +1,5 @@
+import css from './SearchBox.module.css';
+
 const SearchBox = ({ handleSubmit }) => {
   const onSubmit = e => {
     e.preventDefault();
@@ -10,9 +12,16 @@ const SearchBox = ({ handleSubmit }) => {
     form.reset();
   };
   return (
-    <form onSubmit={onSubmit}>
-      <input type="text" name="query" />
-      <button type="submit">Search</button>
+    <form onSubmit={onSubmit} className={css.searchForm}>
+      <input
+        type="text"
+        name="query"
+        className={css.searchInput}
+        placeholder="movie-name"
+      />
+      <button type="submit" className={css.searchBtn}>
+        Search
+      </button>
     </form>
   );
 };

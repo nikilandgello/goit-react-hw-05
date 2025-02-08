@@ -19,9 +19,9 @@ export const getTrendingMovies = async () => {
   return response.data.results;
 };
 
-export const searchMovies = async query => {
+export const searchMovies = async (query, page = 1) => {
   const response = await axiosInstance.get('/search/movie', {
-    params: { query, include_adult: false, language: 'en-US' },
+    params: { query, include_adult: false, language: 'en-US', page },
   });
   return response.data;
 };

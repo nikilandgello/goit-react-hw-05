@@ -1,3 +1,5 @@
+import css from './MovieCastItem.module.css';
+
 const MovieCastItem = ({
   data: { name, original_name, profile_path, character },
 }) => {
@@ -5,13 +7,7 @@ const MovieCastItem = ({
     'https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster';
 
   return (
-    <div>
-      <h4>{original_name}</h4>
-      <p>
-        Character: {character}
-        <br />
-        Name: {name}
-      </p>
+    <>
       {
         <img
           src={
@@ -20,10 +16,15 @@ const MovieCastItem = ({
               : defaultImg
           }
           alt={name}
-          width={100}
+          width={200}
+          className={css.castImg}
         />
       }
-    </div>
+      <div className={css.castDescription}>
+        <h4>{original_name}</h4>
+        <p>Character: {character}</p>
+      </div>
+    </>
   );
 };
 

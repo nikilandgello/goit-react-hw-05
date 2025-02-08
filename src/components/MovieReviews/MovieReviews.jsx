@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieReviews } from '../../services/api';
 import MovieReviewsList from '../MovieReviewsList/MovieReviewsList';
+import css from './MovieReviews.module.css';
 
 const MovieReviews = () => {
   const { movieId } = useParams();
@@ -25,7 +26,7 @@ const MovieReviews = () => {
   }, [movieId]);
 
   return (
-    <div>
+    <div className={css.reviews}>
       {reviews.length > 0 ? (
         <MovieReviewsList data={reviews}></MovieReviewsList>
       ) : (
