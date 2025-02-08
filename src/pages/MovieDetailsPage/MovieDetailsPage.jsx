@@ -19,8 +19,11 @@ const MovieDetailsPage = () => {
   const backLink = useRef(location.state?.from ?? '/movies');
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (!movieId) return;
 
+    if (movieId) {
+      window.scrollTo(0, 0);
+    }
     const fetchMovieDetails = async () => {
       try {
         const data = await getMovieDetails(movieId);
@@ -31,7 +34,7 @@ const MovieDetailsPage = () => {
     };
 
     fetchMovieDetails();
-  }, [movieId, location]);
+  }, [movieId]);
 
   if (!movie) return <Loading></Loading>;
   return (
