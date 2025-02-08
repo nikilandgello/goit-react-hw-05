@@ -6,7 +6,6 @@ import css from './HomePage.module.css';
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
   const isFetched = useRef(false);
-  console.log(css);
 
   useEffect(() => {
     if (isFetched.current) return;
