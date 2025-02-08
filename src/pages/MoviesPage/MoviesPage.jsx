@@ -3,9 +3,9 @@ import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import { searchMovies } from '../../services/api';
-import SearchMoviesList from '../../components/SearchMoviesList/SearchMoviesList';
 import css from './MoviesPage.module.css';
 import Loading from '../../components/Loading/Loading';
+import MovieList from '../../components/MovieList/MovieList';
 
 const MoviesPage = () => {
   const [dataMovies, setDataMovies] = useState([]);
@@ -75,10 +75,7 @@ const MoviesPage = () => {
       <div className={css.search}>
         <SearchBox handleSubmit={handleSubmit}></SearchBox>
         {loading && <Loading></Loading>}
-        <SearchMoviesList
-          data={dataMovies}
-          currentPage={currentPage}
-        ></SearchMoviesList>
+        <MovieList data={dataMovies} currentPage={currentPage}></MovieList>
 
         {dataMovies.length > 0 && (
           <div className={css.pagination}>

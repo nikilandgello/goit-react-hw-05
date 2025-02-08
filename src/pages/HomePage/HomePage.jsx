@@ -1,16 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getTrendingMovies } from '../../services/api';
-import MovieTrendList from '../../components/MovieTrendList/MovieTrendList';
 import css from './HomePage.module.css';
+import MovieList from '../../components/MovieList/MovieList';
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
-  const isFetched = useRef(false);
 
   useEffect(() => {
-    if (isFetched.current) return;
-    isFetched.current = true;
-
     const fetchTrendingMovies = async () => {
       try {
         const data = await getTrendingMovies();
@@ -27,7 +23,7 @@ const HomePage = () => {
     <main>
       <div className={css.movies}>
         <h1 className={css.title}>Best Movies!</h1>
-        <MovieTrendList data={movies} />
+        <MovieList data={movies} />
       </div>
     </main>
   );

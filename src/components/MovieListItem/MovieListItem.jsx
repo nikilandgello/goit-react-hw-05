@@ -1,10 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
-import css from './SearchMoviesItem.module.css';
+import css from './MovieListItem.module.css';
 
-const SearchMoviesItem = ({
-  data: { id, title, poster_path },
-  currentPage,
-}) => {
+const MovieListItem = ({ data: { id, title, poster_path }, currentPage }) => {
   const location = useLocation();
   const maxLength = 17;
 
@@ -34,4 +31,4 @@ const SearchMoviesItem = ({
   );
 };
 
-export default SearchMoviesItem;
+export default MovieListItem;
